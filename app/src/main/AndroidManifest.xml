@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.gamedoanchu">
-<uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,10 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Gamedoanchu">
-        <activity android:name=".Doanchu.Choigame">
-
+        <activity
+            android:name=".Draw.Display"
+            android:exported="false"
+            tools:ignore="Instantiatable">
 
         </activity>
+        <activity
+            android:name=".Draw.MainActivity_vehinh"
+            android:exported="false">
+
+        </activity>
+
+        <activity android:name=".Doanchu.Choigame"></activity>
         <activity
             android:name=".Doanchu.MainActivity"
             android:exported="true">
@@ -21,7 +33,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:background="@drawable/tool_design"
+>
+
+        <Button
+            android:id="@+id/btbut"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_baseline_edit_24"
+            android:onClick="but"
+
+            />
+
+        <Button
+            android:id="@+id/bttay"
+            android:onClick="tay"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_baseline_auto_fix_high_24"
+            android:layout_toRightOf="@id/btbut"
+
+
+            />
+
+        <Button
+            android:id="@+id/btdo"
+            android:onClick="doo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@id/bttay"
+            android:backgroundTint="#EC3E08"
+
+            />
+
+        <Button
+            android:id="@+id/btxanh"
+            android:onClick="xanh"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#4CAF50"
+          android:layout_toRightOf="@id/btdo"
+
+            />
+        <Button
+            android:id="@+id/bttim"
+            android:onClick="tim"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#9C27B0"
+            android:layout_toRightOf="@id/btxanh"
+
+
+            />
+        <Button
+            android:id="@+id/btvang"
+            android:onClick="vang"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#FFEB3B"
+            android:layout_toRightOf="@id/bttim"
+
+
+            />
+        <Button
+            android:id="@+id/btxanhduong"
+            android:onClick="xanhduong"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#2196F3"
+            android:layout_toRightOf="@id/btvang"
+
+
+            />
+
+    </RelativeLayout>
+<include
+layout="@layout/activity_display"
+    />
+
+</LinearLayout>

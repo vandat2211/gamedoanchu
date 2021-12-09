@@ -29,7 +29,7 @@ public class Choigame extends AppCompatActivity {
 ArrayList<String> arrayListtraloi;
 GridView gridViewctl;
 ImageView imganh;
-TextView tvdiem;
+TextView tvdiem,tvcau;
 int index=0;
     ArrayList<String> arrayListda;
     GridView gridViewda;
@@ -47,6 +47,7 @@ int index=0;
         gridViewda=findViewById(R.id.grdapan);
         imganh=findViewById(R.id.imganh);
         tvdiem=findViewById(R.id.tvdiem);
+        tvcau=findViewById(R.id.tvcau);
     }
     private void init(){
         models=new GameModels(this);
@@ -66,6 +67,7 @@ int index=0;
                 .into(imganh);
         models.laytt();
         tvdiem.setText(models.nguoichoi.tien+" $");
+        tvcau.setText(caudo.ten);
     }
     private void hienthi(){
         gridViewctl.setNumColumns(arrayListtraloi.size());
