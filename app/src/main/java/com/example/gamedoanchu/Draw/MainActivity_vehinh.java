@@ -21,8 +21,6 @@
         public static Path path= new Path();
         public static Paint paint_brush=new Paint();
 
-        Display display;
-        OrientationEventListener myOrientationEventListener;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);

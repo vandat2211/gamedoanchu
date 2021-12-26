@@ -2,8 +2,11 @@ package com.example.gamedoanchu.Doanchu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -11,18 +14,23 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.example.gamedoanchu.Data;
 
 import com.bumptech.glide.Glide;
 import com.example.gamedoanchu.Adapter.DapanAdapter;
 import com.example.gamedoanchu.Model.GameModels;
 import com.example.gamedoanchu.Object.cauhoi;
 import com.example.gamedoanchu.R;
+import com.example.gamedoanchu.data_local.DataLocalManager;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
 public class Choigame extends AppCompatActivity {
+    MediaPlayer dung,sai;
+    Animation d,e,f;
     GameModels models;
     cauhoi caudo;
     private String dapan="soctrang";
@@ -41,6 +49,7 @@ int index=0;
         amhxa();
         setOnclick();
         hiencaudo();
+        hiencaudoluu();
     }
     private void amhxa(){
         gridViewctl=findViewById(R.id.grcautraloi);
@@ -48,6 +57,11 @@ int index=0;
         imganh=findViewById(R.id.imganh);
         tvdiem=findViewById(R.id.tvdiem);
         tvcau=findViewById(R.id.tvcau);
+        d = AnimationUtils.loadAnimation(this, R.anim.amin_hienra);
+        e = AnimationUtils.loadAnimation(this, R.anim.amin_dichuyen);
+        f = AnimationUtils.loadAnimation(this, R.anim.amin_phongto);
+        dung=MediaPlayer.create(Choigame.this,R.raw.votayy);
+        sai=MediaPlayer.create(Choigame.this,R.raw.sai);
     }
     private void init(){
         models=new GameModels(this);
@@ -56,9 +70,9 @@ int index=0;
         arrayListda=new ArrayList<>();
 
     }
-    private void hiencaudo(){
-        caudo=models.laycauhoi();
-        dapan=caudo.dapan;
+    private void hiencaudo() {
+        caudo = models.laycauhoi();
+        dapan = caudo.dapan;
         Data();
         hienthi();
         hienthida();
@@ -66,15 +80,37 @@ int index=0;
                 .load(caudo.anh)
                 .into(imganh);
         models.laytt();
-        tvdiem.setText(models.nguoichoi.tien+" $");
+        tvdiem.setText(models.nguoichoi.tien + " $");
         tvcau.setText(caudo.ten);
+        gridViewda.startAnimation(e);
+        gridViewctl.startAnimation(d);
+    }
+    private void hiencaudoluu() {
+        cauhoi hoi= DataLocalManager.getcauhois();
+        if(hoi != null) {
+            dapan=hoi.getDapan();
+            Data();
+            hienthi();
+            hienthida();
+            tvcau.setText(hoi.getTen());
+            Glide.with(this)
+                    .load(hoi.getAnh())
+                    .into(imganh);
+            models.laytt();
+            tvdiem.setText(models.nguoichoi.tien+" $");
+                caudo=models.tieptuc();
+            gridViewda.startAnimation(e);
+            gridViewctl.startAnimation(d);
+            }
     }
     private void hienthi(){
-        gridViewctl.setNumColumns(arrayListtraloi.size());
+        if(arrayListtraloi.size()<=9) gridViewctl.setNumColumns(arrayListtraloi.size());
+        else gridViewctl.setNumColumns(arrayListtraloi.size()/2);
         gridViewctl.setAdapter(new DapanAdapter(this,0,arrayListtraloi));
     }
     private void hienthida(){
-        gridViewda.setNumColumns(arrayListda.size()/2);
+        if(arrayListtraloi.size()<=9) gridViewda.setNumColumns(arrayListda.size()/2);
+        else gridViewda.setNumColumns(arrayListda.size()/3);
         gridViewda.setAdapter(new DapanAdapter(this,0,arrayListda));
     }
     private void setOnclick(){
@@ -148,11 +184,23 @@ int index=0;
         s=s.toUpperCase();
         if(s.equals(dapan.toUpperCase())){
             Toast.makeText(this,"OK",Toast.LENGTH_SHORT).show();
+            dung.start();
             models.laytt();
             models.nguoichoi.tien=models.nguoichoi.tien+10;
+            tvdiem.startAnimation(f);
             models.luutt();
+            DataLocalManager.setcauhois(caudo);
             hiencaudo();
+
         }
+         if(s.length()==dapan.length()){
+             if (!s.equals(dapan.toUpperCase()))
+            {
+                sai.start();
+            }
+        }
+
+
      }
 
     public void mogoiy(View view) {
@@ -224,6 +272,7 @@ int index=0;
         models.luutt();
         tvdiem.setText(models.nguoichoi.tien + " $");
         hiencaudo();
+
     }
 }
 

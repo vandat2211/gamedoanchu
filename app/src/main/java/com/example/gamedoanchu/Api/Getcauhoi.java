@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 
 import com.example.gamedoanchu.Data;
 import com.example.gamedoanchu.Object.cauhoi;
+import com.example.gamedoanchu.data_local.DataLocalManager;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
@@ -23,7 +24,7 @@ public class Getcauhoi extends AsyncTask<Void,Void,Void> {
     protected Void doInBackground(Void... voids) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://192.168.1.8/duoihinhbatchu/laycauhoi.php")
+                .url("http://192.168.1.7/duoihinhbatchu/laycauhoi.php")
                 .build();
         Response response = null;
         try {

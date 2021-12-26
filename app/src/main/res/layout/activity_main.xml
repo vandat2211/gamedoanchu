@@ -14,9 +14,9 @@
         android:layout_height="150dp">
 
         <ImageView
-            android:onClick="ve"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:onClick="ve"
             android:src="@drawable/logo"
 
             />
@@ -26,14 +26,16 @@
     <RelativeLayout
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="match_parent">
+        android:gravity="center|bottom"
+        android:layout_height="350dp">
 
         <Button
+            android:id="@+id/nut"
             android:layout_width="200dp"
             android:layout_height="60dp"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="170dp"
             android:background="@drawable/btxanh"
+            android:backgroundTint="#00BCD4"
             android:gravity="center"
             android:onClick="vaogame"
             android:text="Play"
@@ -42,7 +44,28 @@
             android:textStyle="bold"
             tools:ignore="OnClick" />
 
+
     </RelativeLayout>
+
+
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgxb"
+                android:layout_width="112dp"
+                android:layout_height="91dp"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/xuanbac" />
+            <ImageView
+                android:id="@+id/imgxbv"
+                android:layout_width="112dp"
+                android:layout_height="91dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/xuanbacc" />
+    </RelativeLayout>
+
 
 
 </LinearLayout>
