@@ -4,6 +4,7 @@
     package="com.example.gamedoanchu">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -12,6 +13,12 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Gamedoanchu">
+        <activity
+            android:name=".Doanchu.Choi_sieu_toc"
+            android:exported="false" />
+        <activity
+            android:name=".Doanchu.dhbc_sieutoc"
+            android:exported="false" />
         <activity
             android:name=".Doanchu.Activity"
             android:exported="false" />
@@ -22,10 +29,7 @@
         <activity
             android:name=".Draw.MainActivity_vehinh"
             android:exported="false" />
-        <activity android:name=".Doanchu.Choigame"
-           >
-
-        </activity>
+        <activity android:name=".Doanchu.Choigame" />
         <activity
             android:name=".Doanchu.MainActivity"
             android:exported="true"

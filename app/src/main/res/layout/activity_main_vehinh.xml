@@ -34,11 +34,12 @@
 
         <Button
             android:id="@+id/btdo"
-            android:onClick="doo"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginRight="10dp"
             android:layout_toRightOf="@id/bttay"
             android:backgroundTint="#EC3E08"
+            android:onClick="doo"
 
             />
 
@@ -46,6 +47,7 @@
             android:id="@+id/btxanh"
             android:onClick="xanh"
             android:layout_width="50dp"
+            android:layout_marginRight="10dp"
             android:layout_height="50dp"
             android:backgroundTint="#4CAF50"
           android:layout_toRightOf="@id/btdo"
@@ -55,6 +57,7 @@
             android:id="@+id/bttim"
             android:onClick="tim"
             android:layout_width="50dp"
+            android:layout_marginRight="10dp"
             android:layout_height="50dp"
             android:backgroundTint="#9C27B0"
             android:layout_toRightOf="@id/btxanh"
@@ -65,6 +68,7 @@
             android:id="@+id/btvang"
             android:onClick="vang"
             android:layout_width="50dp"
+            android:layout_marginRight="10dp"
             android:layout_height="50dp"
             android:backgroundTint="#FFEB3B"
             android:layout_toRightOf="@id/bttim"

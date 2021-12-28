@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@drawable/nennn"
+    tools:context=".Doanchu.Choigame">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/tvdiem2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/bg_tien"
+            android:gravity="center"
+            android:minWidth="100dp"
+            android:paddingLeft="10dp"
+            android:layout_toRightOf="@id/imgtrangchu"
+            android:paddingRight="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvdiem3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_toRightOf="@id/imgtrangchu"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/bg_tien"
+            android:gravity="center"
+            android:minWidth="100dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/imgtrangchu"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/ic_baseline_home_24"
+            android:onClick="trangchu"
+            tools:ignore="UsingOnClickInXml" />
+
+        <ImageButton
+            android:id="@+id/imghd"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/ic_baseline_menu_book_24"
+            android:onClick="huongdan"
+            tools:ignore="OnClick,UsingOnClickInXml" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:id="@+id/deltaRelative1"
+        android:layout_marginTop="60dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/a1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:onClick="hinh1"
+            android:src="@drawable/micki"
+            tools:ignore="OnClick" />
+
+        <ImageView
+            android:id="@+id/a2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a1"
+            android:onClick="hinh2"
+            android:src="@drawable/tho"
+            tools:ignore="OnClick,UsingOnClickInXml" />
+
+        <ImageView
+            android:id="@+id/a3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="hinh3"
+            tools:ignore="OnClick"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a2"
+            android:src="@drawable/cho"
+             />
+
+        <ImageView
+            android:id="@+id/a4"
+            android:onClick="hinh4"
+            tools:ignore="OnClick"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@+id/a3"
+            android:src="@drawable/voi" />
+
+        <ImageView
+            android:id="@+id/a5"
+            android:layout_width="50dp"
+            android:onClick="hinh5"
+            tools:ignore="OnClick"
+            android:layout_height="50dp"
+            android:layout_marginLeft="19dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a4"
+            android:src="@drawable/ngua" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/deltaRelative2"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/a6"
+            android:layout_width="50dp"
+            android:onClick="hinh6"
+            tools:ignore="OnClick"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/gau" />
+
+        <ImageView
+            android:id="@+id/a7"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="hinh7"
+            tools:ignore="OnClick"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a6"
+            android:src="@drawable/tom" />
+
+        <ImageView
+            android:id="@+id/a8"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="hinh8"
+            tools:ignore="OnClick"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a7"
+            android:src="@drawable/doremon" />
+
+        <ImageView
+            android:id="@+id/a9"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@+id/a8"
+            android:onClick="hinh9"
+            android:src="@drawable/pu"
+            tools:ignore="OnClick" />
+
+        <ImageView
+            android:id="@+id/a10"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="hinh10"
+            tools:ignore="OnClick"
+            android:layout_marginLeft="19dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a9"
+            android:src="@drawable/trau" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/deltaRelative3"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/a11"
+            android:layout_width="50dp"
+            android:onClick="hinh11"
+            tools:ignore="OnClick"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/ho" />
+
+        <ImageView
+            android:id="@+id/a12"
+            android:layout_width="50dp"
+            android:onClick="hinh12"
+            tools:ignore="OnClick"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a11"
+            android:src="@drawable/soc" />
+
+        <ImageView
+            android:id="@+id/a13"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="hinh13"
+            tools:ignore="OnClick"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a12"
+            android:src="@drawable/ran" />
+
+        <ImageView
+            android:id="@+id/a14"
+            android:layout_width="50dp"
+            android:onClick="hinh14"
+            tools:ignore="OnClick"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@+id/a13"
+            android:src="@drawable/sup" />
+
+        <ImageView
+            android:id="@+id/a15"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="hinh15"
+            tools:ignore="OnClick"
+            android:layout_marginLeft="19dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a14"
+            android:src="@drawable/thoo" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/deltaRelative4"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/a16"
+            android:onClick="hinh16"
+            tools:ignore="OnClick"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/lon" />
+
+        <ImageView
+            android:id="@+id/a17"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="hinh17"
+            tools:ignore="OnClick"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a16"
+            android:src="@drawable/jeni" />
+
+        <ImageView
+            android:id="@+id/a18"
+            android:layout_width="50dp"
+            android:onClick="hinh18"
+            tools:ignore="OnClick"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a17"
+            android:src="@drawable/lownn" />
+
+        <ImageView
+            android:id="@+id/a19"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@+id/a18"
+            android:onClick="hinh19"
+            android:src="@drawable/rongg"
+            tools:ignore="OnClick" />
+
+        <ImageView
+            android:id="@+id/a20"
+            android:layout_width="50dp"
+            android:onClick="hinh20"
+            tools:ignore="OnClick"
+            android:layout_height="50dp"
+            android:layout_marginLeft="19dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a19"
+            android:src="@drawable/pika" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/deltaRelative5"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/a21"
+            android:layout_width="50dp"
+            android:onClick="hinh21"
+            tools:ignore="OnClick"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/roong" />
+
+        <ImageView
+            android:id="@+id/a22"
+            android:layout_width="50dp"
+            android:onClick="hinh22"
+            tools:ignore="OnClick"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a21"
+            android:src="@drawable/de" />
+
+        <ImageView
+            android:id="@+id/a23"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="hinh23"
+            tools:ignore="OnClick"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a22"
+            android:src="@drawable/khi" />
+
+        <ImageView
+            android:id="@+id/a24"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="hinh24"
+            tools:ignore="OnClick"
+            android:layout_toRightOf="@+id/a23"
+            android:src="@drawable/ga" />
+
+        <ImageView
+            android:id="@+id/a25"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="hinh25"
+            tools:ignore="OnClick"
+            android:layout_marginLeft="19dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/a24"
+            android:src="@drawable/chimcc" />
+    </RelativeLayout>
+
+
+
+
+
+    <TextView
+        android:visibility="invisible"
+        android:id="@+id/tb"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#2196F3"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_tien"
+        android:layout_height="match_parent"/>
+</LinearLayout>

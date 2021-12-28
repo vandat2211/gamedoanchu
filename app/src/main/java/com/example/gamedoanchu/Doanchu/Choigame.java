@@ -10,11 +10,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.gamedoanchu.Data;
 
 import com.bumptech.glide.Glide;
 import com.example.gamedoanchu.Adapter.DapanAdapter;
@@ -24,12 +22,10 @@ import com.example.gamedoanchu.R;
 import com.example.gamedoanchu.data_local.DataLocalManager;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 import java.util.Random;
 
 public class Choigame extends AppCompatActivity {
-    MediaPlayer dung,sai;
+    MediaPlayer dung,sai,gophim;
     Animation d,e,f;
     GameModels models;
     cauhoi caudo;
@@ -37,7 +33,7 @@ public class Choigame extends AppCompatActivity {
 ArrayList<String> arrayListtraloi;
 GridView gridViewctl;
 ImageView imganh;
-TextView tvdiem,tvcau;
+TextView tvdiem,tvcau,tvtb;
 int index=0;
     ArrayList<String> arrayListda;
     GridView gridViewda;
@@ -50,18 +46,22 @@ int index=0;
         setOnclick();
         hiencaudo();
         hiencaudoluu();
+
+
     }
     private void amhxa(){
         gridViewctl=findViewById(R.id.grcautraloi);
         gridViewda=findViewById(R.id.grdapan);
         imganh=findViewById(R.id.imganh);
         tvdiem=findViewById(R.id.tvdiem);
+        tvtb=findViewById(R.id.tb);
         tvcau=findViewById(R.id.tvcau);
         d = AnimationUtils.loadAnimation(this, R.anim.amin_hienra);
         e = AnimationUtils.loadAnimation(this, R.anim.amin_dichuyen);
         f = AnimationUtils.loadAnimation(this, R.anim.amin_phongto);
         dung=MediaPlayer.create(Choigame.this,R.raw.votayy);
         sai=MediaPlayer.create(Choigame.this,R.raw.sai);
+        gophim=MediaPlayer.create(Choigame.this,R.raw.gophimp);
     }
     private void init(){
         models=new GameModels(this);
@@ -98,7 +98,7 @@ int index=0;
                     .into(imganh);
             models.laytt();
             tvdiem.setText(models.nguoichoi.tien+" $");
-                caudo=models.tieptuc();
+                caudo=models.laycau();
             gridViewda.startAnimation(e);
             gridViewctl.startAnimation(d);
             }
@@ -117,6 +117,8 @@ int index=0;
         gridViewda.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                gophim.start();
+                tvtb.setVisibility(View.INVISIBLE);
                 String s= (String) adapterView.getItemAtPosition(i);
                 if(s.length()!=0 && index<arrayListtraloi.size()){
                     for(int i1=0;i1<arrayListtraloi.size();i1++){
@@ -137,6 +139,8 @@ int index=0;
         gridViewctl.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                gophim.start();
+                tvtb.setVisibility(View.INVISIBLE);
                 String s= (String) adapterView.getItemAtPosition(i);
                 if(s.length()!=0){
                     index=i;
@@ -182,34 +186,46 @@ int index=0;
             s=s+sl;
         }
         s=s.toUpperCase();
-        if(s.equals(dapan.toUpperCase())){
-            Toast.makeText(this,"OK",Toast.LENGTH_SHORT).show();
-            dung.start();
-            models.laytt();
-            models.nguoichoi.tien=models.nguoichoi.tien+10;
-            tvdiem.startAnimation(f);
-            models.luutt();
-            DataLocalManager.setcauhois(caudo);
-            hiencaudo();
+         Intent intent1=getIntent();
+         String key=intent1.getStringExtra("11");
+             if (s.equals(dapan.toUpperCase())) {
+                 Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+                 dung.start();
+                 models.laytt();
+                 models.nguoichoi.tien = models.nguoichoi.tien + 10;
+                 tvdiem.startAnimation(f);
+                 models.luutt();
+                 DataLocalManager.setcauhois(caudo);
+                 hiencaudo();
+                 hiencaudoluu();
 
-        }
-         if(s.length()==dapan.length()){
-             if (!s.equals(dapan.toUpperCase()))
-            {
-                sai.start();
-            }
-        }
+             }
+             if (s.length() == dapan.length()) {
+                 if (!s.equals(dapan.toUpperCase())) {
+                     sai.start();
+                     models.laytt();
+                     models.nguoichoi.tien = models.nguoichoi.tien - 15;
+                     tvdiem.startAnimation(f);
+                     if(models.nguoichoi.tien<0)  models.nguoichoi.tien=0;
+                     tvdiem.setText(models.nguoichoi.tien+"");
+                     models.luutt();
+                 }
+             }
+
 
 
      }
 
     public void mogoiy(View view) {
+        view.startAnimation(AnimationUtils.loadAnimation(this, androidx.appcompat.R.anim.abc_fade_in));
+        gophim.start();
         models.luutt();
         if (models.nguoichoi.tien < 5) {
-            Toast.makeText(this, "ko du tien mua goi y", Toast.LENGTH_SHORT).show();
+            tvtb.setVisibility(View.VISIBLE);
+            tvtb.startAnimation(e);
+            tvtb.setText("khong du tien mo goi y");
             return;
         }
-        view.startAnimation(AnimationUtils.loadAnimation(this, androidx.appcompat.R.anim.abc_fade_in));
         int id = -1;
         for (int i = 0; i < arrayListtraloi.size(); i++) {
             if (arrayListtraloi.get(i).length() == 0) {
@@ -262,17 +278,26 @@ int index=0;
 
 
     public void doicauhoi(View view) {
+        view.startAnimation(AnimationUtils.loadAnimation(this, androidx.appcompat.R.anim.abc_fade_in));
+        gophim.start();
         models.luutt();
         if (models.nguoichoi.tien < 15) {
-            Toast.makeText(this, "ko du tien doi cau hoi", Toast.LENGTH_SHORT).show();
+            tvtb.setVisibility(View.VISIBLE);
+            tvtb.startAnimation(d);
+            tvtb.setText("khong du tien doi cau hoi");
             return;
         }
-        view.startAnimation(AnimationUtils.loadAnimation(this, androidx.appcompat.R.anim.abc_fade_in));
         models.nguoichoi.tien = models.nguoichoi.tien - 15;
         models.luutt();
         tvdiem.setText(models.nguoichoi.tien + " $");
         hiencaudo();
 
+    }
+
+    public void trangchu(View view) {
+        view.startAnimation(AnimationUtils.loadAnimation(this, androidx.appcompat.R.anim.abc_fade_in));
+        gophim.start();
+        startActivity(new Intent(this,MainActivity.class));
     }
 }
 

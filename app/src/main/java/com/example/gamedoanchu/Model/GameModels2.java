@@ -1,19 +1,20 @@
 package com.example.gamedoanchu.Model;
 
 import com.example.gamedoanchu.Data;
+import com.example.gamedoanchu.Doanchu.Choi_sieu_toc;
 import com.example.gamedoanchu.Doanchu.Choigame;
 import com.example.gamedoanchu.Object.cauhoi;
 import com.example.gamedoanchu.Object.Nguoichoi;
-import com.example.gamedoanchu.data_local.DataLocalManager;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class GameModels {
-    Choigame c;
+public class GameModels2 {
+    Choi_sieu_toc c;
     ArrayList<cauhoi> arr;
+    int causo=0;
     public Nguoichoi nguoichoi;
-    public GameModels(Choigame c) {
+    public GameModels2(Choi_sieu_toc c) {
         this.c = c;
         nguoichoi=new Nguoichoi();
         CreateData();
@@ -28,7 +29,6 @@ public class GameModels {
 //        arr.add(new cauhoi("cau 5","baocao","https://3.bp.blogspot.com/-pzQILmYu4Jw/U8ePEjoEW2I/AAAAAAAACq8/QN8KosNpR70/s1600/2014-07-17+00.43.58-1.png"));
 
     }
-    int causo=0;
     public cauhoi laycauhoi(){
         causo++;
         if(causo==arr.size())
@@ -37,15 +37,18 @@ public class GameModels {
         }
         return arr.get(causo);
     }
+
+
     public cauhoi laycau(){
         Random rd=new Random();
-        int so=rd.nextInt((arr.size()-1+1)+1);
-        if(so==arr.size())
-        {
-            so=arr.size()-1;
-        }
+            int so=rd.nextInt((arr.size()-1+1)+1);
+            if(so==arr.size())
+            {
+                so=arr.size()-1;
+            }
         return arr.get(so);
     }
+
 
 
     public void laytt(){ nguoichoi.gettt(c);

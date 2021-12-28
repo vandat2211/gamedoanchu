@@ -12,6 +12,7 @@
     android:layout_height="50dp">
 
     <TextView
+        android:visibility="invisible"
         android:id="@+id/tvcau"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -19,7 +20,7 @@
         android:layout_marginTop="6dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="6dp"
-        android:layout_toLeftOf="@id/imgbtgoiy"
+        android:layout_toLeftOf="@id/imgtrangchu"
         android:layout_toRightOf="@id/tvdiem"
         android:background="@drawable/bg_tien"
         android:gravity="center"
@@ -50,6 +51,15 @@
         android:textStyle="bold" />
 
     <ImageButton
+        android:id="@+id/imgtrangchu"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@id/imgbtgoiy"
+        android:background="@drawable/ic_baseline_home_24"
+        android:onClick="trangchu"
+        tools:ignore="UsingOnClickInXml" />
+    <ImageButton
         android:id="@+id/imgbtdoicauhoi"
         android:onClick="doicauhoi"
         android:layout_width="50dp"
@@ -68,10 +78,11 @@
         android:onClick="mogoiy"
         tools:ignore="OnClick" />
 </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:padding="10dp"
-        android:layout_height="300dp">
+        android:layout_height="300dp"
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/imganh"
@@ -80,15 +91,17 @@
             android:scaleType="fitCenter"
             android:src="@drawable/a" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:minHeight="100dp"
-        android:layout_height="wrap_content">
+        android:layout_height="100dp">
 
         <GridView
             android:id="@+id/grcautraloi"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
             android:gravity="center">
 
         </GridView>
@@ -96,13 +109,26 @@
     <RelativeLayout
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="200dp">
+
         <GridView
             android:id="@+id/grdapan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:gravity="center">
 
         </GridView>
+
     </RelativeLayout>
+    <TextView
+        android:visibility="invisible"
+        android:id="@+id/tb"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#2196F3"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_tien"
+        android:layout_height="50dp"/>
 </LinearLayout>

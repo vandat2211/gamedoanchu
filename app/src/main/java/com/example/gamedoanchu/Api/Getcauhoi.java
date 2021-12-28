@@ -24,7 +24,7 @@ public class Getcauhoi extends AsyncTask<Void,Void,Void> {
     protected Void doInBackground(Void... voids) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://192.168.1.7/duoihinhbatchu/laycauhoi.php")
+                .url("http://192.168.1.22/duoihinhbatchu/laycauhoi.php")
                 .build();
         Response response = null;
         try {
