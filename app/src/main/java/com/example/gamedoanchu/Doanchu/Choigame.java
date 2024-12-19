@@ -120,9 +120,9 @@ int index=0;
                 gophim.start();
                 tvtb.setVisibility(View.INVISIBLE);
                 String s= (String) adapterView.getItemAtPosition(i);
-                if(s.length()!=0 && index<arrayListtraloi.size()){
+                if(!s.isEmpty() && index<arrayListtraloi.size()){
                     for(int i1=0;i1<arrayListtraloi.size();i1++){
-                        if(arrayListtraloi.get(i1).length()==0){
+                        if(arrayListtraloi.get(i1).isEmpty()){
                             index=i1;
                             break;
                         }
@@ -183,7 +183,7 @@ int index=0;
      private void checkwin(){
         String s="";
         for(String sl:arrayListtraloi){
-            s=s+sl;
+            s = s + sl;
         }
         s=s.toUpperCase();
          Intent intent1=getIntent();

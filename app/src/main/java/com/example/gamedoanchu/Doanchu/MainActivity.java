@@ -15,8 +15,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.gamedoanchu.Api.Getcauhoi;
-import com.example.gamedoanchu.Draw.MainActivity_vehinh;
+//import com.example.gamedoanchu.Api.Getcauhoi;
+//import com.example.gamedoanchu.Draw.MainActivity_vehinh;
 import com.example.gamedoanchu.Object.cauhoi;
 import com.example.gamedoanchu.R;
 import com.example.gamedoanchu.data_local.DataLocalManager;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         mysong=MediaPlayer.create(MainActivity.this,R.raw.nen);
         gophim=MediaPlayer.create(MainActivity.this,R.raw.gophimp);
         mysong.start();
-        new Getcauhoi().execute();
+//        new Getcauhoi().execute();
         a = AnimationUtils.loadAnimation(this, R.anim.amin_right);
         b = AnimationUtils.loadAnimation(this, R.anim.amin_ok);
         c = AnimationUtils.loadAnimation(this, R.anim.amin_left);
@@ -85,18 +85,19 @@ public class MainActivity extends AppCompatActivity {
         if(hoi != null) {
             startActivity(new Intent(this, Choigame.class));
             mysong.release();
+        }else{
+            startActivity(new Intent(this, Choigame.class));
         }
-        startActivity(new Intent(this, Choigame.class));
         finish();
     }
 
-    public void ve(View view) {
-        gophim.start();
-        view.startAnimation(AnimationUtils.loadAnimation(this, androidx.appcompat.R.anim.abc_fade_in));
-        startActivity(new Intent(this, MainActivity_vehinh.class));
-        mysong.release();
-        finish();
-    }
+//    public void ve(View view) {
+//        gophim.start();
+//        view.startAnimation(AnimationUtils.loadAnimation(this, androidx.appcompat.R.anim.abc_fade_in));
+//        startActivity(new Intent(this, MainActivity_vehinh.class));
+//        mysong.release();
+//        finish();
+//    }
 
     public void vaosieutoc(View view) {
         mysong.release();
